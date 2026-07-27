@@ -1,0 +1,49 @@
+/*
+    Aim: WAP to store and display bank account details for users. Info like name, account number, balance, account type.
+    Coder: Shifaa
+    SE COMPS DIV A
+ */
+
+public class task01 {
+    public static void main(String[] args) {
+        User u1 = new User();
+        u1.name = "Eren";
+        u1.acc_number = 12234456;
+        u1.balance = 12000000.00;
+        u1.acc_type = "Fixed";
+        System.out.println(" ");
+        u1.display();
+
+        User u2 = new User();
+        u1.name = "Mikasa";
+        u1.acc_number = 11233455;
+        u1.balance = 42000000.00;
+        u1.acc_type = "Savings";
+        System.out.println(" ");
+        u1.display();
+
+        User u3 = new User();
+        u1.name = "Armin";
+        u1.acc_number = 1122334455;
+        u1.balance = 20000000.00;
+        u1.acc_type = "Current";
+        System.out.println(" ");
+        u1.display();
+
+    }
+}
+
+class User{
+    String name;
+    int acc_number;
+    double balance;
+    String acc_type;
+
+    void display(){
+        System.out.println("Account user name: " +name);
+        System.out.println("User account number: " +acc_number);
+        System.out.println("User account balance: " +balance+ " Rupees");
+        System.out.println("User account type: " +acc_type);
+    }
+
+}
