@@ -1,0 +1,49 @@
+/*
+    Aim: WAP to store and display student information of few students. Information like name, uin, cgpa.
+    Coder: Shifaa
+    SE Comps Div A
+ */
+
+public class exp01 {
+    public static void main(String[] args) {
+        Student s1 = new Student();
+
+        s1.name = "Shifaa";
+        s1.UIN = "251P022";
+        s1.cgpa = 4.5;
+        System.out.println(" ");
+        s1.display();
+        
+        Student s2 = new Student();
+        s2.name = "Gojo";
+        s2.UIN = "251P023";
+        s2.cgpa = 4.3;
+        System.out.println(" ");
+        s2.display();
+        
+        Student s3 = new Student();
+        s3.name = "Geto";
+        s3.UIN = "251P024";
+        s3.cgpa = 4.1;
+        System.out.println(" ");
+        s3.display();
+        
+
+    }
+}
+
+class Student{
+    String name;
+    String UIN;
+    double cgpa;
+    
+    void display(){
+
+        System.out.println("Student name: " +name);
+        System.out.println("Student UIN: " +UIN);
+        System.out.println("Student cgpa: " +cgpa);
+
+    }
+    
+}
+
