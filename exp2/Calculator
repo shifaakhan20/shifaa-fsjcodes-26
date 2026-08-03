@@ -1,0 +1,30 @@
+public class Calculator {
+    int a;
+    int b;
+
+    Calculator(){
+        a = 0;
+        b = 0;
+    }
+
+    Calculator(int i, int j) {
+        a = i;
+        b = j;
+    }
+
+    void add(int p, int q){
+        int sum = p+q;
+        System.out.println("Sum Integer: " +sum);
+    }
+
+    void add(double p, double q){
+        double sum = p+q;
+        System.out.println("Sum double: " +sum);
+    }
+}
+
+
+
+
+
+
