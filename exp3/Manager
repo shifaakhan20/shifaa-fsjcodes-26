@@ -1,0 +1,22 @@
+package exp3;
+
+public class Manager extends Employee {
+    private String team_name;
+    private int team_size;
+    private String projects;
+
+    Manager(String name, int age, String gender, String department, int employeeId, double salary, String team_name,
+            int team_size, String projects) {
+        super(name, age, gender, department, employeeId, salary);
+        this.team_name = team_name;
+        this.team_size = team_size;
+        this.projects = projects;
+    }
+
+    void display() {
+        super.display();
+        System.out.println("Team Name: " + this.team_name);
+        System.out.println("Team Size: " + this.team_size);
+        System.out.println("Projects: " + this.projects);
+    }
+}
