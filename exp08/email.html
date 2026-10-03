@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email ID Validation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff007f, #7f00ff, #00f0ff);
+            background-size: 300% 300%;
+            animation: gradientBG 10s ease infinite;
+            padding: 20px;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            color: #2d0066;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            outline: none;
+            transition: all 0.3s ease;
+            color: #333;
+        }
+
+        input[type="text"]:focus {
+            border-color: #7f00ff;
+            box-shadow: 0 0 0 4px rgba(127, 0, 255, 0.15);
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(90deg, #ff007f, #7f00ff);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 20px rgba(127, 0, 255, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(127, 0, 255, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        #emailMessage {
+            display: block;
+            margin-top: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            min-height: 20px;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>Email Validator</h1>
+        <p>Ensure your email address is correct</p>
+
+        <div class="input-group">
+            <input type="text" id="email" placeholder="Enter your email address">
+        </div>
+
+        <button onclick="validateEmail()">Validate</button>
+        <span id="emailMessage"></span>
+    </div>
+
+    <script>
+        function validateEmail() {
+            const emailEle = document.querySelector('#email');
+            let email = emailEle.value.trim();
+
+            const emailRegex = /^[\w.!#$%&'*+/=?^`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*\.[a-zA-Z]{2,}$/;
+
+            const messageElement = document.getElementById("emailMessage");
+
+            if (email === "") {
+                messageElement.textContent = "Please enter an email address";
+                messageElement.style.color = "#ff007f";
+                return;
+            }
+
+            if (emailRegex.test(email)) {
+                messageElement.textContent = "✓ Valid email address";
+                messageElement.style.color = "#00c853";
+            } else {
+                messageElement.textContent = "✕ Invalid email address";
+                messageElement.style.color = "#ff1744";
+            }
+        }
+        
+    </script>
+</body>
+
+</html>
