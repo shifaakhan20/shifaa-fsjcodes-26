@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Changer</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #1a1b2f;
+            transition: background-color 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 50px 60px;
+            border-radius: 28px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #1e1e2f;
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 24px;
+        }
+
+        button {
+            padding: 16px 36px;
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffffff;
+            background: #1e1e2f;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            opacity: 0.9;
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>HEY!</h1>
+        <button onclick="changeBg()">Click Me!</button>
+    </div>
+
+    <script>
+        let bgTimer = null;
+
+        function changeBg() {
+            const bodyEle = document.querySelector('body');
+            
+            let colors = [
+                '#003566', '#38b000', '#d00000', 
+                '#ffb703', '#7209b7', '#ff006e', '#00f5d4'
+            ];
+
+            let randomColor = colors[Math.floor(Math.random() * colors.length)];
+            bodyEle.style.backgroundColor = randomColor;
+
+            if (bgTimer === null) {
+                bgTimer = setInterval(() => {
+                    const innerColor = colors[Math.floor(Math.random() * colors.length)];
+                    bodyEle.style.backgroundColor = innerColor;
+                }, 5000);
+            }
+        }
+    </script>
+</body>
+
+</html>
